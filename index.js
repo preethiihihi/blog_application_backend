@@ -3,9 +3,12 @@ const bodyParser = require("body-parser"); //to parse in json format
 const mongoose = require("mongoose"); //to connect with mongoDB
 const cors = require("cors");
 const route=require('./routes/index.js')
+const db=require('./config/mongoose.js')
 
 //initilize the app
 const app = express();
+
+app.use(express.urlencoded({extended:true}));
 
 //middleware setup
 app.use(bodyParser.json());
