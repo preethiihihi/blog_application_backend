@@ -13,10 +13,15 @@ app.use(express.urlencoded({extended:true}));
 //middleware setup
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors());
+app.use(cors())
 
 app.use('/',route)
 
+app.use((req, res, next) => {
+  console.log(`Incoming Request: ${req.method} ${req.url}`);
+  console.log(`Headers: `, req.headers);
+  next();
+});
 
 //port
 const PORT = process.env.PORT || 5793;
