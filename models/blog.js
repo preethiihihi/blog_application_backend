@@ -2,7 +2,8 @@ const mongoose=require("mongoose")
 
 blogSchema=mongoose.Schema({
      userId:{
-         type:'string',
+         type:mongoose.Schema.Types.ObjectId,
+         ref:'Users',
          required:true
      },
       title:{
@@ -12,6 +13,10 @@ blogSchema=mongoose.Schema({
       description:{
           type:String,
           required:true
+      },
+      article:{
+        type:String,
+        required:true
       },
       timeStamp:{
           type:Date,

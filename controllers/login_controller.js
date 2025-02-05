@@ -1,6 +1,5 @@
 const Users =  require('../models/users')
 module.exports.login = async (req, res) => {
-  console.log("i came here");
   try {
     const { username, password } = req.body;
     const user = await Users.findOne({ username });
